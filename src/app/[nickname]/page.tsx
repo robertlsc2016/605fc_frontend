@@ -33,12 +33,12 @@ export default function HomePage() {
       });
 
       if ((Array.isArray(user) && user.length === 0) || user == null) {
-        window.location.href = "/ranking";
+        window.location.href = "/";
       }
 
       return user;
     } catch (error) {
-      window.location.href = "/ranking";
+      window.location.href = "/";
       console.error("Erro ao buscar usuário:", error);
       return [];
     }
@@ -102,7 +102,7 @@ export default function HomePage() {
                   alignItems: "center",
                   justifyContent: "center",
                   overflow: "hidden",
-                  // border: "3px solid black",
+                  border: "3px solid black",
                 }}
                 src={
                   player?.photo ||
