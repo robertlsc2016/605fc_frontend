@@ -132,15 +132,6 @@ export default function HomePage() {
               }}
               className="pt-4 flex flex-row gap-1"
             >
-              <Tooltip placement="top" title={"gols"}>
-                <div className="flex flex-col justify-center items-center">
-                  <p className="text-[22px]">⚽</p>
-                  <p className="text-[#06d748] text-[24px] font-[500]">
-                    {player?.goals}
-                  </p>
-                </div>
-              </Tooltip>
-
               <Tooltip placement="top" title={"assistências"}>
                 <div className="flex flex-col justify-center items-center">
                   <p className="text-[22px]">🤝</p>
@@ -148,10 +139,19 @@ export default function HomePage() {
                 </div>
               </Tooltip>
 
+              <Tooltip placement="top" title={"gols"}>
+                <div className="flex flex-col justify-center items-center">
+                  <p className="text-[22px]">⚽</p>
+                  <p className="text-[#08ad3c] text-[36px] font-[600]">
+                    {player?.goals}
+                  </p>
+                </div>
+              </Tooltip>
+
               <Tooltip placement="top" title={"falhas"}>
                 <div className="flex flex-col justify-center items-center">
                   <p className="text-[22px]">❌</p>
-                  <p className="text-[16px]">{player?.errors}</p>
+                  <p className="text-[24px]">{player?.errors}</p>
                 </div>
               </Tooltip>
             </div>
@@ -181,7 +181,9 @@ export default function HomePage() {
                     dataSource={player?.history.map((item, index) => ({
                       ...item,
                       key: index,
-                      date: new Date(item.date).toLocaleDateString("pt-BR"),
+                      date: new Date(item.date).toLocaleDateString("pt-BR", {
+                        timeZone: "UTC",
+                      }),
                     }))}
                     columns={[
                       {
