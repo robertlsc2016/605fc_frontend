@@ -47,10 +47,9 @@ export default function HomePage() {
     <div className="w-full h-full  flex flex-col items-center justify-start  p-2 ">
       <div
         className="flex justify-start items-center  flex-col w-[100%] max-w-[512px] bg-[#b7b7b7] rounded-t-[24px] h-auto p-4 min-h-[100vh]"
-        style={{ position: "relative" }}
+        style={{ position: "relative", gap: "8px" }}
       >
         {isLoading ? (
-          // indicator={<LoadingOutlined spin />}
           <Spin indicator={<LoadingOutlined spin />} size="large" />
         ) : (
           <>
@@ -112,9 +111,13 @@ export default function HomePage() {
             </div>
 
             <div className="flex flex-col items-center justify-center">
-              <h2 className="text-[32px]">{nickname}</h2>
+              <h2 className="text-[32px]">
+                {decodeURIComponent(nickname ? String(nickname) : "")}
+              </h2>
               <p className="text-[16px] italic text-center text-[#575757]">
-                {player?.description || "Sem descrição"}
+                {decodeURIComponent(
+                  player?.description ? String(player?.description) : ""
+                ) || "Sem descrição"}
               </p>
             </div>
 
@@ -127,12 +130,12 @@ export default function HomePage() {
                 width: "100%",
                 // border: "1px solid #000",
               }}
-              className="flex flex-row gap-1"
+              className="pt-4 flex flex-row gap-1"
             >
               <Tooltip placement="top" title={"gols"}>
                 <div className="flex flex-col justify-center items-center">
                   <p className="text-[22px]">⚽</p>
-                  <p className="text-[#06d748] text-[16px] font-[500]">
+                  <p className="text-[#06d748] text-[24px] font-[500]">
                     {player?.goals}
                   </p>
                 </div>
@@ -141,7 +144,7 @@ export default function HomePage() {
               <Tooltip placement="top" title={"assistências"}>
                 <div className="flex flex-col justify-center items-center">
                   <p className="text-[22px]">🤝</p>
-                  <p className="text-[16px]">{player?.assists}</p>
+                  <p className="text-[24px]">{player?.assists}</p>
                 </div>
               </Tooltip>
 
