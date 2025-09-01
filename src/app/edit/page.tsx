@@ -1,11 +1,10 @@
 "use client";
+import api from "@/services/api";
 import { getPlayers } from "@/services/users.service";
 import { Player } from "@/types/player";
 import { Button, DatePicker } from "antd";
-import { useEffect, useState } from "react";
-import axios from "axios";
 import dayjs, { Dayjs } from "dayjs";
-import api from "@/services/api";
+import { useEffect, useState } from "react";
 
 interface PlayerStats {
   playerId: string;
@@ -80,7 +79,6 @@ export default function EditPage() {
       const response = await api.post("/add-history/all", payload);
       alert(response.data.message || "Histórico salvo com sucesso!");
     } catch (error: any) {
-      console.error(error);
       alert(
         error.response?.data?.message ||
           "Ocorreu um erro ao salvar o histórico."

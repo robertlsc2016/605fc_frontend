@@ -1,5 +1,6 @@
 import { Player } from "@/types/player";
 import { Tooltip } from "antd";
+import Image from "next/image";
 import Link from "next/link";
 
 export default function PlayerCard({
@@ -45,7 +46,10 @@ export default function PlayerCard({
             }}
             className=""
           >
-            <img
+            <Image
+              width={80}
+              height={80}
+              alt="player photo"
               style={{
                 width: "100%",
                 height: "100%",
@@ -128,7 +132,6 @@ export default function PlayerCard({
             </div>
           </Tooltip>
         </div>
-
       </div>
     </Link>
   );

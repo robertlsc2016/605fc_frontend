@@ -4,6 +4,7 @@ import { getPlayer } from "@/services/users.service";
 import { Player } from "@/types/player";
 import { LeftOutlined, LoadingOutlined } from "@ant-design/icons";
 import { Spin, Table, Tooltip } from "antd";
+import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -86,7 +87,10 @@ export default function HomePage() {
               }}
               className=""
             >
-              <img
+              <Image
+                width={128}
+                height={128}
+                alt="player photo"
                 style={{
                   width: "100%",
                   height: "100%",

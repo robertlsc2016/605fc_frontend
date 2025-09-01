@@ -1,4 +1,4 @@
-export default function RootLayout({ children }) {
+export default function RootLayout() {
   return (
     <html class="h-full w-full ">
       <body class="h-full min-h-screen m-0">
