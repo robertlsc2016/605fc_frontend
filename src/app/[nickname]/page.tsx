@@ -177,6 +177,7 @@ export default function HomePage() {
               ) : (
                 <div>
                   <Table
+                    pagination={{ position: ["none"] }}
                     dataSource={player?.history.map((item, index) => ({
                       ...item,
                       key: index,
