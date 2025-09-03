@@ -62,7 +62,7 @@ export default function HomePage() {
           <Spin indicator={<LoadingOutlined spin />} size="large" />
         ) : (
           <>
-            <Link href="/ranking">
+            <Link href="/">
               <div
                 style={{
                   position: "absolute",
