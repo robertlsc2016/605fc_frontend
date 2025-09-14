@@ -39,7 +39,7 @@ export default function HomePage() {
             <LoadingOutlined
               style={{
                 marginTop: "96px",
-                  fontSize: "48px",
+                fontSize: "48px",
               }}
               spin
             />

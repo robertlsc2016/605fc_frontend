@@ -12,6 +12,7 @@ interface PlayerStats {
   goals: number;
   assists: number;
   errors: number;
+  presence: boolean;
 }
 
 export default function EditPage() {
@@ -31,6 +32,7 @@ export default function EditPage() {
             goals: 0,
             assists: 0,
             errors: 0,
+            presence: false,
           }))
       );
     });
@@ -57,7 +59,7 @@ export default function EditPage() {
   const handleChange = (
     playerId: string,
     field: keyof Omit<PlayerStats, "playerId" | "nickname">,
-    value: number
+    value: number | boolean
   ) => {
     setStats((prev) =>
       prev.map((s) => (s.playerId === playerId ? { ...s, [field]: value } : s))
@@ -86,6 +88,10 @@ export default function EditPage() {
     }
   };
 
+  const handlePresence = ({ playerId }: { playerId: string }) => {
+    document.getElementById(playerId)?.click();
+  };
+
   return (
     <div style={{ padding: "20px" }}>
       <table
@@ -101,6 +107,7 @@ export default function EditPage() {
             <th style={thStyle}>Gols</th>
             <th style={thStyle}>Assists</th>
             <th style={thStyle}>Erros</th>
+            <th style={thStyle}>Participation</th>
           </tr>
         </thead>
         <tbody>
@@ -149,6 +156,29 @@ export default function EditPage() {
                           player._id as string,
                           "errors",
                           Number(e.target.value)
+                        )
+                      }
+                    />
+                  </td>
+
+                  <td
+                    style={tdStyle}
+                    onClick={() =>
+                      handlePresence({ playerId: player._id as string })
+                    }
+                  >
+                    <input
+                      type="checkbox"
+                      id={player._id}
+                      checked={playerStat?.presence || false}
+                      onClick={() =>
+                        handlePresence({ playerId: player._id as string })
+                      }
+                      onChange={(e) =>
+                        handleChange(
+                          player._id as string,
+                          "presence",
+                          e.target.checked
                         )
                       }
                     />

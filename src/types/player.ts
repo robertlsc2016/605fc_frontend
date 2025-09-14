@@ -3,6 +3,7 @@ export interface UserHistory {
   goals: number;
   assists: number;
   errors: number;
+  presence: boolean;
 }
 
 export interface Player {

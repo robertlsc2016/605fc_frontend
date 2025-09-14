@@ -10,6 +10,7 @@ export default function PlayerCard({
   goals,
   assists,
   errors,
+  history,
 }: Player) {
   return (
     <Link href={`/${nickname}`}>
@@ -26,7 +27,7 @@ export default function PlayerCard({
             alignItems: "center",
 
             height: "100%",
-            width: "60%",
+            width: "50%",
             // border: "1px solid red",
           }}
           className="flex flex-row gap-2 items-center justify-center"
@@ -44,7 +45,6 @@ export default function PlayerCard({
               borderRadius: "50%",
               padding: "3px",
             }}
-            className=""
           >
             <Image
               width={80}
@@ -106,7 +106,7 @@ export default function PlayerCard({
             justifyContent: "space-around",
             alignItems: "center",
             height: "100%",
-            width: "40%",
+            width: "50%",
             // border: "1px solid #000",
           }}
           className="flex flex-row gap-1"
@@ -129,6 +129,15 @@ export default function PlayerCard({
             <div className="flex flex-col justify-center items-center">
               <p className="text-[22px]">❌</p>
               <p className="text-[16px]">{errors}</p>
+            </div>
+          </Tooltip>
+
+          <Tooltip placement="top" title={"presença em campo"}>
+            <div className="flex flex-col justify-center items-center">
+              <p className="text-[22px]">🙋‍♂️</p>
+              <p className="text-[16px]">
+                {((history.filter((h) => h.presence).length / history.length) * 100).toFixed(0)}%
+              </p>
             </div>
           </Tooltip>
         </div>

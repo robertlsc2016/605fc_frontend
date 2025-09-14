@@ -46,18 +46,15 @@ export default function HomePage() {
   return (
     <div className="w-full h-full  flex flex-col items-center justify-start  p-2 ">
       <div
-        className="flex justify-start items-center  flex-col w-[100%] max-w-[512px] bg-[#b7b7b7] rounded-t-[24px] h-auto p-4 min-h-[100vh]"
+        className="flex justify-start items-center  flex-col w-[100%] max-w-[512px] bg-[#b7b7b7] rounded-t-[24px] p-4"
         style={{
           position: "relative",
           gap: "8px",
           backgroundColor: "#bdd4e7",
-          // backgroundImage: `linear-gradient(315deg, #bdd4e7 0%, #8693ab 74%)`,
+          minHeight: "100vh",
+          height: "auto",
         }}
       >
-
-        {/* background-color: #bdd4e7; */}
-{/* background-image: linear-gradient(315deg, #bdd4e7 0%, #8693ab 74%); */}
-
         {isLoading ? (
           <Spin indicator={<LoadingOutlined spin />} size="large" />
         ) : (
